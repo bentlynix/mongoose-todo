@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Todo app</title>
+</head>
+<body>
+
+<h1>Todo list</h1>
+<form action='/todos' method="post">
+	<input type="text" name="description">
+	<button type="submit">Add </button>
+</form>
+<ul>
+{{#todos}}
+   <li> <form action="/todos/{{_id}}/completed" method="post">
+   {{description}} - {{done}} <button type="submit">Mark Done</button>
+</form>
+</li>
+{{/todos}}
+</ul>
+<h3>Done ToDo</h3>
+<ul>
+{{#donetodos}}
+   <li> <form action="/todos/{{_id}}/completed" method="post">
+   {{description}} - {{done}} <button type="submit">Mark Not Done</button>
+</form>
+</li>
+{{/donetodos}}
+</ul>
+</body>
+</html>
